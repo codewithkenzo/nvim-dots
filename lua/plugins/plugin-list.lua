@@ -39,16 +39,38 @@ return {
   { 'rasulomaroff/reactive.nvim' },
   {"MunifTanjim/nui.nvim", lazy = false},
   {"numToStr/FTerm.nvim"},
-  {"lambdalisue/vim-suda"},
+  {"ggandor/flit.nvim"},
+  {"xiyaowong/transparent.nvim"},
+  {"lambdalisue/vim-suda", lazy = false},
+  {
+  "folke/noice.nvim",
+  event = "VeryLazy",
+  dependencies = {
+    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    "MunifTanjim/nui.nvim",
+    -- OPTIONAL:
+    --   `nvim-notify` is only needed, if you want to use the notification view.
+    --   If not available, we use `mini` as the fallback
+    "rcarriga/nvim-notify",
+    }
+
+},
+  {"ggandor/leap.nvim", lazy = false,
+config = function()
+local leap = require('leap')
+leap.add_default_mappings()
+leap.opts.case_sensitive = true
+    end,
+},
   {
   "declancm/cinnamon.nvim",
-    lazy = false,
   version = "*", -- use latest release
   opts = {
     -- change default options here
   },
 },
-  {"VonHeikemen/fine-cmdline.nvim", lazy = false},
+  {"VonHeikemen/fine-cmdline.nvim",enabled = false,
+   lazy = false},
   {"yamatsum/nvim-cursorline"},
   {"tpope/vim-fugitive", lazy = false},
 {
